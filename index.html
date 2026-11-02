@@ -30,6 +30,182 @@ body:after{
 }
 a{text-decoration:none;color:inherit}button,input,select{font:inherit}button{cursor:pointer}.shell{width:min(1500px,96vw);margin:auto}
 
+/* === WIX-STUDIO STYLE 2.5D MULTI-LAYER PARALLAX SHOWCASE === */
+.parallaxTrack{
+  position:relative;
+  height:340vh;
+  width:100%;
+  z-index:20;
+  user-select:none;
+}
+.parallaxViewport{
+  position:sticky;
+  top:0;
+  height:100vh;
+  width:100%;
+  overflow:hidden;
+  background:#040b11;
+  perspective:1000px;
+}
+.pLayer{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  will-change:transform,opacity;
+  transform-style:preserve-3d;
+}
+/* SCENE 1: Mountain Valley, Rising Sun & Traveler */
+.pSky1{
+  background:
+    radial-gradient(circle at 50% 68%,rgba(255,168,88,.28),rgba(17,45,62,.85) 52%,#040b11 92%),
+    linear-gradient(180deg,#040c14 0%,#0c2330 58%,#1d2e3a 100%);
+}
+.pStars{
+  background-image:
+    radial-gradient(1.5px 1.5px at 18% 22%,rgba(255,255,255,.75),transparent),
+    radial-gradient(1px 1px at 36% 14%,rgba(255,255,255,.6),transparent),
+    radial-gradient(1.5px 1.5px at 64% 26%,rgba(5,232,255,.7),transparent),
+    radial-gradient(1px 1px at 82% 18%,rgba(255,255,255,.65),transparent),
+    radial-gradient(2px 2px at 48% 12%,rgba(255,205,140,.7),transparent);
+  opacity:.75;
+}
+.pSun{
+  position:absolute;
+  left:50%;
+  top:64%;
+  width:min(44vw,420px);
+  height:min(44vw,420px);
+  margin-left:calc(min(44vw,420px) * -0.5);
+  margin-top:calc(min(44vw,420px) * -0.5);
+  border-radius:50%;
+  background:radial-gradient(circle,#fffdf5 0%,#ffd28e 32%,#ff8a47 62%, rgba(255,102,42,0) 74%);
+  box-shadow:0 0 120px rgba(255,168,76,.65),0 0 220px rgba(255,110,50,.35);
+  mix-blend-mode:screen;
+}
+.pContent{
+  position:absolute;
+  left:50%;
+  top:34%;
+  transform:translate3d(-50%,-50%,0);
+  text-align:center;
+  width:min(860px,90vw);
+  z-index:8;
+  pointer-events:auto;
+}
+.pContent .pEyebrow{
+  font-size:11px;
+  letter-spacing:.34em;
+  text-transform:uppercase;
+  color:#ffd599;
+  font-weight:900;
+  margin-bottom:10px;
+  text-shadow:0 2px 14px rgba(0,0,0,.7);
+}
+.pContent h2{
+  margin:0;
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:clamp(30px,5vw,66px);
+  line-height:1.03;
+  letter-spacing:.03em;
+  text-transform:uppercase;
+  color:#fff;
+  text-shadow:0 10px 35px rgba(0,0,0,.8),0 0 40px rgba(255,190,120,.22);
+}
+.pContent p{
+  max-width:520px;
+  margin:14px auto 22px;
+  font-size:clamp(11px,1.1vw,14px);
+  line-height:1.6;
+  color:rgba(238,247,252,.86);
+  text-shadow:0 2px 12px rgba(0,0,0,.85);
+}
+.pCta{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 26px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.38);
+  background:rgba(6,16,24,.72);
+  backdrop-filter:blur(10px);
+  color:#fff;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  box-shadow:0 12px 32px rgba(0,0,0,.45),0 0 24px rgba(5,232,255,.18);
+  transition:transform .25s ease,background .25s ease,border-color .25s ease;
+}
+.pCta:hover{
+  transform:translateY(-3px) scale(1.04);
+  border-color:var(--cyan);
+  background:rgba(12,34,48,.88);
+}
+
+/* SCENE 2: Subterranean Cavern & Stalactite Wipe */
+.pScene2{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 25%,rgba(68,188,212,.26),rgba(10,34,46,.92) 56%,#03090f 95%),
+    linear-gradient(180deg,#03090f 0%,#0b2836 52%,#040b11 100%);
+  will-change:transform,opacity;
+}
+.pLightRays{
+  background:
+    conic-gradient(from 155deg at 50% -10%,transparent 0deg,rgba(120,235,255,.14) 12deg,transparent 24deg,rgba(120,235,255,.11) 36deg,transparent 50deg);
+  mix-blend-mode:screen;
+}
+.pScrollHint{
+  position:absolute;
+  left:50%;
+  bottom:24px;
+  transform:translateX(-50%);
+  z-index:35;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:8px 16px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.2);
+  background:rgba(4,12,20,.68);
+  backdrop-filter:blur(8px);
+  color:#d9f3fa;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+.pScrollDot{
+  width:7px;height:7px;border-radius:50%;background:var(--cyan);
+  box-shadow:0 0 10px var(--cyan);
+  animation:pPulse 1.4s ease-in-out infinite;
+}
+@keyframes pPulse{50%{transform:translateY(3px);opacity:.4}}
+.pSkipBtn{
+  position:absolute;
+  right:24px;
+  bottom:24px;
+  z-index:35;
+  padding:9px 14px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.24);
+  background:rgba(4,12,20,.72);
+  color:#fff;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  backdrop-filter:blur(8px);
+}
+.pSkipBtn:hover{border-color:var(--cyan);color:var(--cyan)}
+
 /* === TOPBAR & SIDEBAR === */
 .topbar{position:sticky;top:0;z-index:100;background:rgba(2,6,10,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);transition:background .3s ease}
 .nav{min-height:68px;display:flex;align-items:center;gap:18px}
@@ -46,7 +222,7 @@ a{text-decoration:none;color:inherit}button,input,select{font:inherit}button{cur
 .icon:active,.btn:active{transform:translateY(-1px)}
 .btn.primary{border-color:var(--pink)}
 
-.main{display:grid;grid-template-columns:205px 1fr;gap:17px;padding-top:20px}
+.main{display:grid;grid-template-columns:205px 1fr;gap:17px;padding-top:26px}
 .sidebar{position:sticky;top:86px;height:max-content;padding:14px;border:1px solid var(--line);border-radius:20px;background:linear-gradient(180deg,var(--panel),var(--panel2));box-shadow:0 16px 40px rgba(0,0,0,.14)}
 .sidebar .sidebrand{font-size:20px;font-weight:1000;letter-spacing:.08em;padding:4px 7px 14px;border-bottom:1px solid var(--line)}.sidebar .sidebrand span{color:var(--pink)}
 .sideNav a{display:flex;align-items:center;gap:8px;padding:12px 10px;margin-top:5px;border:1px solid transparent;border-radius:10px;color:var(--muted);font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;transition:all .2s ease}
@@ -77,7 +253,6 @@ a{text-decoration:none;color:inherit}button,input,select{font:inherit}button{cur
   border-color:var(--cyan);
   box-shadow:var(--tileShadow);
 }
-/* Shimmer sweep on hover */
 .kpi::after,.action::after,.card::after,.stateCard::after,.compareCell::after{
   content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;
   background:radial-gradient(220px circle at var(--mx,50%) var(--my,50%),rgba(12,116,137,.14),transparent 60%);
@@ -100,7 +275,7 @@ body:not(.light) .kpi::after,body:not(.light) .action::after,body:not(.light) .c
 .mapPanel .badges{position:absolute;left:20px;bottom:19px;display:flex;gap:7px;flex-wrap:wrap;z-index:4}
 .badges span{border:1px solid var(--line);padding:8px 10px;border-radius:999px;background:var(--panel);font-size:8px;font-weight:950;letter-spacing:.1em;color:var(--cyan)}
 
-/* Floating Map Hover Tile Card (e.g. Rajasthan Pop-Up Tile) */
+/* Floating Map Hover Tile Card */
 .mapHoverTile{
   position:absolute;
   left:50%;top:50%;
@@ -198,7 +373,6 @@ body:not(.light) .kpi::after,body:not(.light) .action::after,body:not(.light) .c
   box-shadow:var(--tileShadow);
   z-index:12;
 }
-/* Crystal Clear Image Container */
 .visual{
   height:132px;border:1px solid var(--line);border-radius:12px;
   background:var(--panel2);
@@ -220,7 +394,6 @@ body:not(.light) .kpi::after,body:not(.light) .action::after,body:not(.light) .c
   transform:scale(1.06) translate3d(0,0,0)!important;
   filter:contrast(1.08) saturate(1.14);
 }
-/* Smooth Image Curtain Wipe (plays every time card enters viewport) */
 .visual::before{
   content:"";position:absolute;inset:0;z-index:3;
   background:linear-gradient(110deg,var(--curtain1) 15%,var(--curtain2) 48%,var(--curtain3) 52%,var(--curtain1) 85%);
@@ -503,9 +676,119 @@ body.light #particleCanvas{opacity:.28;mix-blend-mode:multiply}
 </head>
 <body class="light">
 <div id="scrollProgress" class="scrollProgress" aria-hidden="true"></div>
-<header class="topbar"><div class="shell nav"><div class="brand">NATION<span>DRIVE</span></div><nav class="navlinks"><a href="#home" class="active">DATA TODAY</a><a href="#states">STATES & UTs</a><a href="#analytics">ANALYTICS</a><a href="#tools">TOOLS</a><a href="#sources">SOURCES</a></nav><div class="tools"><div class="search"><input id="globalSearch" type="text" inputmode="search" autocomplete="off" spellcheck="false" aria-label="Search state or union territory" tabindex="0" placeholder="Search state or UT..."><button id="globalSearchBtn" class="icon">⌕</button></div><a id="downloadExcelTop" class="icon downloadBtn" href="NATIONDRIVE_Road_Accidents_2016_2026.xlsx" download="NATIONDRIVE_Road_Accidents_2016_2026.xlsx" title="Download complete Excel dataset">⇩ XLSX</a><button id="reloadBtn" class="icon">↻</button><button id="themeBtn" class="icon" aria-label="Switch to cyber dark mode" title="Switch to cyber dark mode">☾ CYBER</button><button id="soundBtn" class="icon" aria-label="Toggle cyber sound effects" title="Toggle cyber sound effects">◉ FX OFF</button></div></div></header>
+<header class="topbar"><div class="shell nav"><div class="brand">NATION<span>DRIVE</span></div><nav class="navlinks"><a href="#parallaxShowcase" class="active">SHOWCASE</a><a href="#home">DATA TODAY</a><a href="#states">STATES & UTs</a><a href="#analytics">ANALYTICS</a><a href="#tools">TOOLS</a><a href="#sources">SOURCES</a></nav><div class="tools"><div class="search"><input id="globalSearch" type="text" inputmode="search" autocomplete="off" spellcheck="false" aria-label="Search state or union territory" tabindex="0" placeholder="Search state or UT..."><button id="globalSearchBtn" class="icon">⌕</button></div><a id="downloadExcelTop" class="icon downloadBtn" href="NATIONDRIVE_Road_Accidents_2016_2026.xlsx" download="NATIONDRIVE_Road_Accidents_2016_2026.xlsx" title="Download complete Excel dataset">⇩ XLSX</a><button id="reloadBtn" class="icon">↻</button><button id="themeBtn" class="icon" aria-label="Switch to cyber dark mode" title="Switch to cyber dark mode">☾ CYBER</button><button id="soundBtn" class="icon" aria-label="Toggle cyber sound effects" title="Toggle cyber sound effects">◉ FX OFF</button></div></div></header>
+
+<!-- === WIX STUDIO STYLE 2-STAGE PARALLAX HERO & CAVERN TRANSITION === -->
+<section class="parallaxTrack" id="parallaxShowcase" aria-label="Interactive Parallax Story Intro">
+  <div class="parallaxViewport">
+    <!-- STAGE 1: Mountain Valley, Rising Sun & Traveler Silhouette -->
+    <div class="pLayer pSky1" id="pSky1"></div>
+    <div class="pLayer pStars" id="pStars"></div>
+    <div class="pSun" id="pSun"></div>
+
+    <!-- Distant Mountain Range -->
+    <svg class="pLayer" id="pFarMountains" viewBox="0 0 1440 900" preserveAspectRatio="none">
+      <path fill="#102534" opacity="0.85" d="M0,900 L0,540 L150,430 L310,510 L490,360 L660,500 L790,420 L960,350 L1140,480 L1310,390 L1440,470 L1440,900 Z"></path>
+      <path fill="#0c1c28" opacity="0.7" d="M0,900 L0,590 L220,470 L410,560 L580,450 L720,575 L890,440 L1090,540 L1270,450 L1440,530 L1440,900 Z"></path>
+    </svg>
+
+    <!-- Stage 1 Center Headline -->
+    <div class="pContent" id="pText1">
+      <div class="pEyebrow">NATIONDRIVE • ROAD SAFETY INTELLIGENCE 2016–2026</div>
+      <h2>GUARDING ROADS,<br>SAVING LIVES!</h2>
+      <p>Embark on an interactive data journey across 37 Indian States and Union Territories. Every number represents a life, a family, and a safer tomorrow.</p>
+      <a href="#home" class="pCta">Explore Dashboard ↓</a>
+    </div>
+
+    <!-- Left Mountain Ridge (Parts Left on Scroll) -->
+    <svg class="pLayer" id="pMountLeft" viewBox="0 0 1440 900" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="mLeftGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#193747"/>
+          <stop offset="100%" stop-color="#061119"/>
+        </linearGradient>
+      </defs>
+      <path fill="url(#mLeftGrad)" d="M-80,900 L-80,310 L95,380 L230,290 L385,430 L540,520 L665,690 L740,900 Z"></path>
+      <path fill="#295264" opacity="0.45" d="M-80,310 L95,380 L230,290 L310,490 L120,620 L-80,550 Z"></path>
+    </svg>
+
+    <!-- Right Mountain Ridge (Parts Right on Scroll) -->
+    <svg class="pLayer" id="pMountRight" viewBox="0 0 1440 900" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="mRightGrad" x1="1" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1b3a4b"/>
+          <stop offset="100%" stop-color="#050e15"/>
+        </linearGradient>
+      </defs>
+      <path fill="url(#mRightGrad)" d="M1520,900 L1520,290 L1340,360 L1185,270 L1020,420 L880,535 L765,700 L690,900 Z"></path>
+      <path fill="#315f73" opacity="0.4" d="M1520,290 L1340,360 L1185,270 L1090,480 L1310,600 L1520,520 Z"></path>
+    </svg>
+
+    <!-- Foreground Traveler Silhouette & Valley Rim -->
+    <svg class="pLayer" id="pTraveler" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice">
+      <!-- Valley Floor Rim -->
+      <path fill="#040a10" d="M0,900 L0,775 Q360,710 620,760 L820,760 Q1080,710 1440,775 L1440,900 Z"></path>
+      <!-- Glowing Highway Centerlines -->
+      <path stroke="#ff9d5c" stroke-width="3" stroke-dasharray="18 14" opacity="0.7" fill="none" d="M720,755 L720,900"></path>
+      <!-- Rock Pedestal -->
+      <path fill="#03070b" d="M580,900 L645,730 L795,730 L860,900 Z"></path>
+      <!-- Hooded Traveler Silhouette Looking at Horizon -->
+      <g transform="translate(720, 650)">
+        <!-- Flowing Cloak -->
+        <path fill="#050c12" stroke="#ffae6d" stroke-width="1.2" d="M-22,-42 C-38,-10 -56,42 -68,92 L68,92 C54,40 38,-10 22,-42 Z"></path>
+        <!-- Shoulders & Torso -->
+        <path fill="#020609" d="M-26,-38 C-15,-50 15,-50 26,-38 L34,30 L-34,30 Z"></path>
+        <!-- Hood / Head -->
+        <circle cx="0" cy="-62" r="16" fill="#020609" stroke="#ffd29d" stroke-width="1"></circle>
+        <!-- Rim Light Glow on Staff -->
+        <line x1="38" y1="-78" x2="52" y2="90" stroke="#ffd29d" stroke-width="3" stroke-linecap="round"></line>
+      </g>
+    </svg>
+
+    <!-- STAGE 2: Subterranean Cavern & Stalactite Ceiling Curtain -->
+    <div class="pScene2" id="pScene2">
+      <div class="pLayer pLightRays" id="pLightRays"></div>
+
+      <!-- Cavern Background Pillars -->
+      <svg class="pLayer" id="pCaveBack" viewBox="0 0 1440 900" preserveAspectRatio="none">
+        <path fill="#071c28" opacity="0.8" d="M0,0 L1440,0 L1440,900 L1220,900 L1180,320 L1060,900 L380,900 L310,360 L210,900 L0,900 Z"></path>
+      </svg>
+
+      <!-- Left & Right Cave Walls -->
+      <svg class="pLayer" id="pCaveLeft" viewBox="0 0 1440 900" preserveAspectRatio="none">
+        <path fill="#041018" d="M-60,0 L430,0 L340,240 L270,490 L390,720 L480,900 L-60,900 Z"></path>
+      </svg>
+      <svg class="pLayer" id="pCaveRight" viewBox="0 0 1440 900" preserveAspectRatio="none">
+        <path fill="#041018" d="M1500,0 L1010,0 L1100,250 L1170,510 L1050,730 L960,900 L1500,900 Z"></path>
+      </svg>
+
+      <!-- Stage 2 Center Headline ("OUR SHOWCASE, YOUR ADVENTURE!" style) -->
+      <div class="pContent" id="pText2" style="top:46%">
+        <div class="pEyebrow" style="color:#6beeff">DEEP INTELLIGENCE • VERIFIED MORTH RECORDS</div>
+        <h2>OUR ANALYTICS,<br>YOUR SAFER ROADS!</h2>
+        <p>Dive beneath surface numbers into state-by-state survival rates, trip risk scoring, and 10-year national projections crafted for rapid clarity.</p>
+        <a href="#states" class="pCta">Unleash State Explorer →</a>
+      </div>
+
+      <!-- Foreground Cavern Floor Boulders -->
+      <svg class="pLayer" id="pCaveFloor" viewBox="0 0 1440 900" preserveAspectRatio="none">
+        <path fill="#02070b" d="M0,900 L0,740 L180,680 L390,750 L640,695 L860,745 L1120,675 L1310,730 L1440,690 L1440,900 Z"></path>
+        <path fill="#0b2836" opacity="0.45" d="M180,680 L390,750 L640,695 L860,745 L1120,675 L1040,790 L410,810 Z"></path>
+      </svg>
+    </div>
+
+    <!-- Jagged Stalactite Ceiling Curtain (Wipes across transition like 00:04-00:06) -->
+    <svg class="pLayer" id="pStalactites" viewBox="0 0 1440 500" preserveAspectRatio="none" style="height:55vh;z-index:25">
+      <path fill="#02060a" d="M0,0 L1440,0 L1440,160 L1390,340 L1345,190 L1290,410 L1240,210 L1190,310 L1135,170 L1080,380 L1025,195 L975,290 L920,165 L865,430 L810,205 L755,330 L700,180 L645,390 L590,190 L535,310 L480,175 L425,420 L370,210 L315,350 L260,185 L205,395 L150,200 L95,330 L45,180 L0,290 Z"></path>
+    </svg>
+
+    <div class="pScrollHint"><span class="pScrollDot"></span>SCROLL TO GLIDE THROUGH THE STORY</div>
+    <a href="#home" class="pSkipBtn">SKIP TO DASHBOARD ↓</a>
+  </div>
+</section>
+
 <main class="shell main" id="home">
-<aside class="sidebar" data-scroll="slide-left"><div class="sidebrand">NATION<span>DRIVE</span></div><nav class="sideNav"><a class="active" href="#home">⌂ HOME</a><a href="#overview">◈ INDIA OVERVIEW</a><a href="#states">◫ STATES & UTs</a><a href="#yearwise">▤ YEAR WISE DATA</a><a href="#analytics">▥ VISUAL ANALYTICS</a><a href="#tools">⚡ INTELLIGENCE TOOLS</a><a href="#sources">◉ ABOUT / SOURCES</a></nav><div class="sidequote">“EVERY NUMBER<br>REPRESENTS A LIFE”<small>DRIVE SAFE • BUILD INDIA</small></div></aside>
+<aside class="sidebar" data-scroll="slide-left"><div class="sidebrand">NATION<span>DRIVE</span></div><nav class="sideNav"><a href="#parallaxShowcase">✦ PARALLAX INTRO</a><a class="active" href="#home">⌂ HOME</a><a href="#overview">◈ INDIA OVERVIEW</a><a href="#states">◫ STATES & UTs</a><a href="#yearwise">▤ YEAR WISE DATA</a><a href="#analytics">▥ VISUAL ANALYTICS</a><a href="#tools">⚡ INTELLIGENCE TOOLS</a><a href="#sources">◉ ABOUT / SOURCES</a></nav><div class="sidequote">“EVERY NUMBER<br>REPRESENTS A LIFE”<small>DRIVE SAFE • BUILD INDIA</small></div></aside>
 <section>
 <div class="heroTop" data-scroll="slide-up"><div><div class="eyebrow">EXPLORE • ANALYZE • UNDERSTAND • BUILD A SAFER TOMORROW</div><h1>INDIA ROAD ACCIDENTS <span class="year">2016 – 2026</span></h1><div class="tagline">Same roads • different stories • one India</div></div><button class="btn primary" id="heroExplore">EXPLORE ALL STATES →</button></div>
 <div class="heroGrid" id="overview">
@@ -607,6 +890,80 @@ const money=n=>n==null?'NA':new Intl.NumberFormat('en-IN').format(n),pct=n=>n==n
 const imgMap={
 'Andhra Pradesh':'assets/state-andhra-pradesh.jpg','Arunachal Pradesh':'assets/state-arunachal-pradesh.jpg','Assam':'assets/state-assam.jpg','Bihar':'assets/state-bihar.jpg','Chhattisgarh':'assets/state-chhattisgarh.jpg','Goa':'assets/state-goa.jpg','Gujarat':'assets/state-gujarat.jpg','Haryana':'assets/state-haryana.jpg','Himachal Pradesh':'assets/state-himachal-pradesh.jpg','Jammu & Kashmir':'assets/state-jammu-and-kashmir.jpg','Jharkhand':'assets/state-jharkhand.jpg','Karnataka':'assets/state-karnataka.jpg','Kerala':'assets/state-kerala.jpg','Madhya Pradesh':'assets/state-madhya-pradesh.jpg','Maharashtra':'assets/state-maharashtra.jpg','Manipur':'assets/state-manipur.jpg','Meghalaya':'assets/state-meghalaya.jpg','Mizoram':'assets/state-mizoram.jpg','Nagaland':'assets/state-nagaland.jpg','Odisha':'assets/state-odisha.jpg','Punjab':'assets/state-punjab.jpg','Rajasthan':'assets/state-rajasthan.jpg','Sikkim':'assets/state-sikkim.jpg','Tamil Nadu':'assets/state-tamil-nadu.jpg','Telangana':'assets/state-telangana.jpg','Tripura':'assets/state-tripura.jpg','Uttar Pradesh':'assets/state-uttar-pradesh.jpg','Uttarakhand':'assets/state-uttarakhand.jpg','West Bengal':'assets/state-west-bengal.jpg','Andaman & Nicobar Islands':'assets/state-andaman-and-nicobar-islands.jpg','Chandigarh':'assets/state-chandigarh.jpg','Dadra & Nagar Haveli':'assets/state-dadra-and-nagar-haveli.jpg','Daman & Diu':'assets/state-daman-and-diu.jpg','Delhi':'assets/state-delhi.jpg','Ladakh':'assets/state-ladakh.jpg','Lakshadweep':'assets/state-lakshadweep.jpg','Puducherry':'assets/state-puducherry.jpg'};
 
+/* === WIX-STYLE 2.5D PARALLAX STORY ENGINE (60FPS LERP) === */
+function setupWixParallax(){
+  const track=document.getElementById('parallaxShowcase');
+  if(!track)return;
+  const sun=document.getElementById('pSun');
+  const farM=document.getElementById('pFarMountains');
+  const mLeft=document.getElementById('pMountLeft');
+  const mRight=document.getElementById('pMountRight');
+  const traveler=document.getElementById('pTraveler');
+  const text1=document.getElementById('pText1');
+  const scene2=document.getElementById('pScene2');
+  const stalactites=document.getElementById('pStalactites');
+  const caveLeft=document.getElementById('pCaveLeft');
+  const caveRight=document.getElementById('pCaveRight');
+  const caveFloor=document.getElementById('pCaveFloor');
+  const text2=document.getElementById('pText2');
+
+  let targetP=0, currentP=0;
+  const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
+  const norm=(v,a,b)=>clamp((v-a)/(b-a),0,1);
+
+  function updateTarget(){
+    const rect=track.getBoundingClientRect();
+    const scrollable=Math.max(1,track.offsetHeight-window.innerHeight);
+    targetP=clamp(-rect.top/scrollable,0,1);
+  }
+  window.addEventListener('scroll',updateTarget,{passive:true});
+  window.addEventListener('resize',updateTarget,{passive:true});
+  updateTarget();
+
+  function renderLoop(){
+    currentP += (targetP - currentP) * 0.11;
+    const p = currentP;
+
+    // Stage 1 (0.00 -> 0.52): Sun rises, mountains part left/right, traveler zooms in
+    const p1 = norm(p, 0, 0.52);
+    if(sun) sun.style.transform = `translate3d(0, ${-p1 * 175}px, 0) scale(${1 + p1 * 0.48})`;
+    if(farM) farM.style.transform = `translate3d(0, ${p1 * 45}px, 0) scale(${1 + p1 * 0.08})`;
+    if(mLeft) mLeft.style.transform = `translate3d(${-p1 * 240}px, ${p1 * 25}px, 0) scale(${1 + p1 * 0.16})`;
+    if(mRight) mRight.style.transform = `translate3d(${p1 * 240}px, ${p1 * 25}px, 0) scale(${1 + p1 * 0.16})`;
+    if(traveler) traveler.style.transform = `translate3d(0, ${-p1 * 48}px, 0) scale(${1 + p1 * 0.55})`;
+    if(text1){
+      text1.style.transform = `translate3d(-50%, calc(-50% - ${p1 * 95}px), 0) scale(${1 + p1 * 0.12})`;
+      text1.style.opacity = (1 - norm(p, 0.30, 0.48)).toFixed(3);
+    }
+
+    // Curtain Wipe & Stage 2 (0.38 -> 1.00): Stalactite ceiling drops & rises, cavern opens
+    const pWipe = norm(p, 0.34, 0.56);
+    const p2 = norm(p, 0.46, 1.0);
+
+    if(stalactites){
+      // Drops down from -100% to 0% during transition, then lifts slightly as cavern opens
+      const yStal = -100 + (pWipe * 100) - (p2 * 22);
+      stalactites.style.transform = `translate3d(0, ${yStal.toFixed(2)}%, 0) scale(${1 + p2 * 0.08})`;
+    }
+    if(scene2){
+      const s2Y = (1 - pWipe) * 100;
+      scene2.style.transform = `translate3d(0, ${s2Y.toFixed(2)}%, 0)`;
+      scene2.style.opacity = norm(p, 0.35, 0.48).toFixed(3);
+    }
+    if(caveLeft) caveLeft.style.transform = `translate3d(${-p2 * 165}px, 0, 0) scale(${1 + p2 * 0.12})`;
+    if(caveRight) caveRight.style.transform = `translate3d(${p2 * 165}px, 0, 0) scale(${1 + p2 * 0.12})`;
+    if(caveFloor) caveFloor.style.transform = `translate3d(0, ${(1 - p2) * 80}px, 0) scale(${1 + p2 * 0.14})`;
+    if(text2){
+      const t2In = norm(p, 0.48, 0.72);
+      text2.style.opacity = t2In.toFixed(3);
+      text2.style.transform = `translate3d(-50%, calc(-50% + ${(1 - t2In) * 65}px), 0) scale(${0.92 + t2In * 0.12})`;
+    }
+
+    requestAnimationFrame(renderLoop);
+  }
+  requestAnimationFrame(renderLoop);
+}
+
 function toast(t){const e=document.getElementById('toast');e.textContent=t;e.classList.add('show');clearTimeout(window.__tt);window.__tt=setTimeout(()=>e.classList.remove('show'),1700)}
 function renderKpis(){const nt=INDIA_TOTALS[Number(currentYear)];let a=nt?.[0]??0,d=nt?.[1]??0;if(!nt){DATA.forEach(s=>{a+=s[currentYear]?.accidents||0;d+=s[currentYear]?.deaths||0})}const sv=a?100-d/a*100:0;document.getElementById('kpis').innerHTML=`<div class="kpi"><small>Total Accidents</small><strong class="pink countUp" data-target="${a}" data-format="money">0</strong></div><div class="kpi"><small>Total Deaths</small><strong class="pink countUp" data-target="${d}" data-format="money">0</strong></div><div class="kpi"><small>Calculated Survival</small><strong class="lime countUp" data-target="${sv}" data-format="pct">0.0%</strong></div>`;document.getElementById('yearCaption').textContent=currentYear;animateCountUps()}
 function renderChart(id){const vs=Object.keys(INDIA_TOTALS).map(y=>({y,a:INDIA_TOTALS[y][0]})),mx=Math.max(...vs.map(x=>x.a));document.getElementById(id).innerHTML=vs.map(x=>`<div class="barCol"><div class="barValue">${money(x.a)}</div><div class="bar" style="--h:${Math.max(35,Math.round(x.a/mx*170))}px"></div><div class="barLabel">${x.y}</div></div>`).join('')}
@@ -629,7 +986,6 @@ const mapPositions={
 function openData(name){const d=rec(name);if(!d)return;const r=d[currentYear]||{};document.getElementById('modalEyebrow').textContent='STATE NODE • VERIFIED DATA';document.getElementById('modalTitle').textContent=name;const years=Object.keys(INDIA_TOTALS);const rows=years.map(y=>{const v=d[y]||{};return `<tr><td>${y}${y===currentYear?' ★':''}</td><td>${v.accidents==null?'—':money(v.accidents)}</td><td>${v.deaths==null?'—':money(v.deaths)}</td><td>${v.deathRate==null?'—':pct(v.deathRate)}</td><td>${v.survivalRate==null?'—':pct(v.survivalRate)}</td><td>${v.accidents==null?'—':riskLabel(v)}</td></tr>`}).join('');document.getElementById('modalBody').innerHTML=`<div class="detailGrid"><div class="detail"><small>Selected Year</small><strong>${currentYear}</strong></div><div class="detail"><small>Accidents</small><strong>${r.accidents==null?'—':money(r.accidents)}</strong></div><div class="detail"><small>Deaths</small><strong>${r.deaths==null?'—':money(r.deaths)}</strong></div></div><table><thead><tr><th>Year</th><th>Accidents</th><th>Deaths</th><th>Death Rate</th><th>Calculated Survival</th><th>Risk</th></tr></thead><tbody>${rows}</tbody></table><div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px"><button class="btn" onclick='printStatePdf(${JSON.stringify(name)})'>DOWNLOAD PDF</button></div><p style="margin-top:10px;color:var(--muted);font-size:8px">Calculated survival = 100 − (deaths ÷ accidents × 100). It is an accident-level proxy, not a person-level survival rate. State-wise data for years without a reported state record is shown as —.</p>`;document.getElementById('modal').classList.add('show')}
 function openImage(name){const d=rec(name);if(!d)return;const r=d[currentYear]||{};const src=imgMap[name]||'assets/india-cyberpunk-map.png';document.getElementById('modalEyebrow').textContent=`STATE IMAGE • ${currentYear}`;document.getElementById('modalTitle').textContent=name;document.getElementById('modalBody').innerHTML=`<div class="poster" style="padding:14px;min-height:0"><img src="${src}" onerror="this.onerror=null;this.src='assets/india-cyberpunk-map.png'" alt="${name} road accident visual" style="display:block;width:100%;max-height:62vh;object-fit:contain;border-radius:12px"></div><div class="detailGrid" style="margin-top:10px"><div class="detail"><small>Year</small><strong>${currentYear}</strong></div><div class="detail"><small>Accidents</small><strong>${r.accidents==null?'—':money(r.accidents)}</strong></div><div class="detail"><small>Deaths</small><strong>${r.deaths==null?'—':money(r.deaths)}</strong></div></div>`;document.getElementById('modal').classList.add('show')}
 
-/* === MAP HOVER POP-UP TILE CARD (e.g., Hover Rajasthan -> Rajasthan Tile Pops Up) === */
 function renderMapNodes(){
   const g=document.getElementById('mapNodes');
   const tile=document.getElementById('mapHoverTile');
@@ -659,13 +1015,11 @@ function renderMapNodes(){
         </div>
       `;
 
-      // Position the pop-up tile accurately over the hovered map node
       const circleRect=n.querySelector('circle').getBoundingClientRect();
       const panelRect=panel.getBoundingClientRect();
       let leftPx=circleRect.left - panelRect.left + circleRect.width/2;
       let topPx=circleRect.top - panelRect.top;
 
-      // Clamp horizontally so tile never clips outside mapPanel
       leftPx=Math.max(122,Math.min(panelRect.width-122,leftPx));
       const flipDown = topPx < 215;
 
@@ -721,7 +1075,6 @@ function renderStates(){
   observeScrollAnimations();
 }
 
-/* === 3D POP-UP TILE INTERACTION FOR CARDS & BOXES === */
 function bindTilt(){
   document.querySelectorAll('.tilt, .action, .kpi, .compareCell').forEach(el=>{
     if(el.dataset.bound)return;
@@ -756,7 +1109,6 @@ function syncTimeline(year,announce=true){currentYear=String(year);document.quer
 function setupTimeline(){document.getElementById('timelineRange')?.addEventListener('input',e=>{const years=Object.keys(INDIA_TOTALS).map(String);syncTimeline(years[Number(e.target.value)],false)});document.querySelectorAll('.timelineBtn').forEach(b=>b.addEventListener('click',()=>syncTimeline(b.dataset.timelineYear)));}
 function setupParticles(){const c=document.getElementById('particleCanvas'),host=document.getElementById('mapPanel');if(!c||!host)return;const ctx=c.getContext('2d');let w=0,h=0,pts=[];const resize=()=>{const d=Math.min(2,devicePixelRatio||1),r=host.getBoundingClientRect();w=r.width;h=r.height;c.width=w*d;c.height=h*d;c.style.width=w+'px';c.style.height=h+'px';ctx.setTransform(d,0,0,d,0,0);pts=Array.from({length:48},()=>({x:Math.random()*w,y:Math.random()*h,z:.3+Math.random()*.7,vx:(Math.random()-.5)*.14,vy:(Math.random()-.5)*.14}))};window.addEventListener('resize',resize,{passive:true});resize();function draw(){ctx.clearRect(0,0,w,h);const isLight=document.body.classList.contains('light');const dotCol=isLight?'12,116,137':'5,232,255';for(const p of pts){p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=w;if(p.x>w)p.x=0;if(p.y<0)p.y=h;if(p.y>h)p.y=0;ctx.beginPath();ctx.arc(p.x,p.y,1.2+p.z*1.5,0,Math.PI*2);ctx.fillStyle=`rgba(${dotCol},${.2+p.z*.25})`;ctx.fill()}requestAnimationFrame(draw)}requestAnimationFrame(draw)}
 
-/* === INFINITE REPEAT SCROLL REVEAL ENGINE (Re-triggers every time you scroll up or down!) === */
 let scrollIO=null;
 const activeVisuals=new Set();
 
@@ -770,8 +1122,6 @@ function observeScrollAnimations(){
           el.classList.add('in-view');
           if(vis) activeVisuals.add(vis);
         }else{
-          // Remove .in-view whenever the element leaves the screen (either top or bottom)
-          // so the animation replays fresh every single time you scroll up or down!
           el.classList.remove('in-view');
           if(vis) activeVisuals.delete(vis);
         }
@@ -784,7 +1134,7 @@ function observeScrollAnimations(){
 function setupScrollMotionEngine(){
   const prog=document.getElementById('scrollProgress');
   const backTop=document.getElementById('backTop');
-  const sections=['home','overview','yearwise','states','compare','analytics','tools','sources'];
+  const sections=['parallaxShowcase','home','overview','yearwise','states','compare','analytics','tools','sources'];
   let ticking=false;
 
   function onScrollFrame(){
@@ -795,15 +1145,13 @@ function setupScrollMotionEngine(){
     if(prog) prog.style.width=(y/max*100).toFixed(1)+'%';
     if(backTop) backTop.classList.toggle('show',y>500);
 
-    // Subtle vertical parallax on visible card images
     activeVisuals.forEach(v=>{
       const r=v.getBoundingClientRect();
       const ratio=((r.top+r.height*0.5)-vh*0.5)/(vh*0.5);
       v.style.setProperty('--img-py',(ratio*-6).toFixed(1)+'px');
     });
 
-    // Active Navigation Spy
-    let currentSec='home';
+    let currentSec='parallaxShowcase';
     for(const id of sections){
       const el=document.getElementById(id);
       if(el && el.getBoundingClientRect().top<=180) currentSec=id;
@@ -880,7 +1228,6 @@ document.getElementById('clearFilters').onclick=()=>{document.getElementById('st
 document.getElementById('heroExplore').onclick=()=>scrollToSec('#states');
 document.getElementById('reloadBtn').onclick=()=>{currentYear='2024';document.querySelectorAll('#yearTabs .btn').forEach(x=>x.classList.toggle('active',x.dataset.year==='2024'));document.getElementById('globalSearch').value='';document.getElementById('stateSearch').value='';document.getElementById('sortSelect').value='name';renderAll();window.scrollTo({top:0,behavior:'smooth'});toast('DASHBOARD RESET')};
 
-/* === CREAM DEFAULT THEME + USER SWITCHER === */
 const themeBtn=document.getElementById('themeBtn');
 const savedTheme=localStorage.getItem('nationdrive-theme');
 if(savedTheme==='cyber'){
@@ -901,6 +1248,7 @@ themeBtn.onclick=()=>{
 };
 
 document.getElementById('pdfReportBtn').onclick=printPdfReport;
+setupWixParallax();
 setupTimeline();
 setupParticles();
 setupCompare();
